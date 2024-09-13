@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <link rel="author" href="https://www.linkedin.com/in/cristina-correa-segade/" />
+    <link rel="stylesheet" href="css/styles_old.css" />
+    <script src="js/js_old.js" defer></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Link a Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/a572cee94c.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Flavicon -->
+    <link rel="shortcut icon" type="image/jpg" href="img/flavicon-icon.png" />
+
+    <!-- Meta -->
+    <meta name="keywords" content="html,css,javascript,password generator" />
+    <meta
+      name="description"
+      content="Generador de contraseñas desarrollado con HTML, CSS y JavaScript"
+    />
+    <meta name="author" content="Cristina Correa" />
+    <meta name="generator" content="VSCode" />
+    <meta name="theme-color" content="#000" />
+
+    <meta name="google" content="nositelinkssearchbox" />
+    <meta name="google" content="notranslate" />
+    <meta name="robots" content="index, nofollow" />
+
+    <meta property="og:title" content="Password Generator" />
+    <meta
+      property="og:description"
+      content="Generador de contraseñas desarrollado con HTML, CSS y JavaScript"
+    />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Password Generator</h1>
+        <section class="password-field">
+          <header class="password-display">
+            <p class="password-placeholder">P4$5W0rD!</p>
+          </header>
+          <div class="copy-wrapper">
+            <button class="copy-btn">
+              <i class="fa-regular fa-copy"></i>
+            </button>
+          </div>
+        </section>
+      </header>
+      <form class="password-settings">
+        <!-- Longitud de la contraseña -->
+        <section class="length">
+          <header class="char-length">
+            <p>Character Length</p>
+            <span class="char-count">14</span>
+          </header>
+          <input
+            class="char-length-slider"
+            aria-label="Password length"
+            type="range"
+            min="8"
+            max="20"
+            value="14"
+            autocomplete="off"
+          />
+        </section>
+        <!-- Checkboxs de diferentes parámetros que incluír en la contraseña  -->
+        <div role="group" class="char-include-group">
+          <label>
+            <input type="checkbox" id="uppercase" value="uppercase" />
+            <span class="custom-checkbox" role="checkbox"></span>
+            <p>Include Uppercase Letters</p>
+          </label>
+          <label>
+            <input type="checkbox" id="lowercase" value="lowercase" checked />
+            <span class="custom-checkbox" role="checkbox"></span>
+            <p>Include Lowercase Letters</p>
+          </label>
+          <label>
+            <input type="checkbox" id="numbers" value="numbers" checked />
+            <span class="custom-checkbox" role="checkbox"></span>
+            <p>Include Numbers</p>
+          </label>
+          <label>
+            <input type="checkbox" id="symbols" value="symbols" />
+            <span class="custom-checkbox" role="checkbox"></span>
+            <p>Include Symbols</p>
+          </label>
+        </div>
+        <!-- Criterio de Seguridad de la contraseña -->
+        <section class="strength-box">
+          <p class="strength-label">Strength</p>
+          <div role="group" class="strength-rating">
+            <span class="strength-rating-text"></span>
+            <div role="group" class="strength-rating-bars">
+              <div role="presentation" class="bar"></div>
+              <div role="presentation" class="bar"></div>
+              <div role="presentation" class="bar"></div>
+              <div role="presentation" class="bar"></div>
+            </div>
+          </div>
+        </section>
+        <!-- Botón para generar la contraseña -->
+        <button class="generate-btn" type="submit">
+          <span>Generate</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </form>
+    </main>
+    <footer class="attribution">
+      <small>
+        Icono de Flavicon diseñado por
+        <a
+          href="https://www.flaticon.es/iconos-gratis/contrasena"
+          title="contraseña iconos"
+          >smashingstocks - Flaticon</a
+        >
+      </small>
+    </footer>
+  </body>
+</html>

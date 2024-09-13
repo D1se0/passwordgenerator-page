@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <!--<link rel="stylesheet" href="css/styles.css" />-->
+    <link id="theme-stylesheet" rel="stylesheet" href="css/style_dark.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/a572cee94c.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="img/favicon.ico" type="image/png">
+</head>
+<body class="dark-mode">
+    <main class="container">
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <header>
+            <div class="header-content">
+                <h1 class="title-page">Password Generator</h1>
+                <div class="theme" id="toggleButton">
+                    <svg fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="2em" width="2em">
+                        <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 13V2a6 6 0 1 1 0 12z"></path>
+                    </svg>
+                </div>
+            </div>
+            <section class="password-field">
+                <header class="password-display newPassword">
+                    <p class="password-placeholder" readonly>C4$K30y1U!</p>
+                </header>
+                <div class="copy-wrapper">
+                    <button class="copy-btn">
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
+                    <button class="toggle-visibility">
+                        <i class="fa-regular fa-eye"></i>
+                    </button>
+                </div>
+            </section>
+        </header>
+        <!-- Botón para abrir el popup -->
+        <button class="info-btn" id="open-popup-btn">ℹ️ <strong>Info</strong></button>
+
+        <!-- Estructura del popup -->
+        <div class="popup" id="info-popup">
+            <div class="popup-content">
+                <span class="close-btn" id="close-popup-btn">&times;</span>
+                <h2>Sobre los caracteres especiales</h2>
+                <p>Los caracteres especiales incluídos son los siguientes: <span class="terminal-box">!</span><span class="terminal-box">[]</span><span class="terminal-box">{}</span><span class="terminal-box">()</span><span class="terminal-box">%</span><span class="terminal-box">&</span><span class="terminal-box">*</span><span class="terminal-box">$</span><span class="terminal-box">#</span><span class="terminal-box">^</span><span class="terminal-box"><></span></span><span class="terminal-box">~</span><span class="terminal-box">@</span><span class="terminal-box">|</span>
+                    Los caractéres <span class="terminal-box">ç</span> y <span class="terminal-box">ñ</span> sólo se incluirán en sus respectivas versiones cuando estén las mayúsculas o minúsculas activadas.</p>
+            </div>
+        </div>
+        <form class="password-settings">
+            <!-- Longitud de la contraseña -->
+            <section class="char-length">
+                <header class="char-length">
+                    <p>Character Length</p>
+                    <span class="char-count">14</span>
+                </header>
+                <input class="char-length-slider" aria-label="Password length" type="range" min="8" max="20" value="14" autocomplete="off" />
+            </section>
+            <div role="group" class="char-include-group">
+                <label>
+                    <input type="checkbox" id="uppercase" value="uppercase" />
+                    <span class="custom-checkbox" role="checkbox"></span>
+                    <p>Include Uppercase Letters</p>
+                </label>
+                <label>
+                    <input type="checkbox" id="lowercase" value="lowercase" checked />
+                    <span class="custom-checkbox" role="checkbox"></span>
+                    <p>Include Lowercase Letters</p>
+                </label>
+                <label>
+                    <input type="checkbox" id="numbers" value="numbers" checked />
+                    <span class="custom-checkbox" role="checkbox"></span>
+                    <p>Include Numbers</p>
+                </label>
+                <label>
+                    <input type="checkbox" id="symbols" value="symbols" />
+                    <span class="custom-checkbox" role="checkbox"></span>
+                    <p>Include Symbols</p>
+                </label>
+                <label>
+                    <input type="checkbox" id="include-ñ" value="include-ñ" />
+                    <span class="custom-checkbox"></span>
+                    <p>Include Ñ/ñ</p>
+                </label>
+                <label>
+                    <input type="checkbox" id="include-ç" value="include-ç" />
+                    <span class="custom-checkbox"></span>
+                    <p>Include Ç/ç</p>
+                </label>
+                <label for="avoid-chars" class="avoid-chars-label">
+                    <p class="avoid-chars-text">Characters to Avoid:</p>
+                    <input type="text" id="avoid-chars" placeholder="Enter characters to avoid" />
+                </label>                               
+            </div>
+            <!-- Criterio de Seguridad de la contraseña -->
+            <section class="strength-box">
+                <p class="strength-title">Strength</p>
+                <div role="group" class="strength-rating">
+                    <span class="strength-rating-text"></span>
+                    <div role="group" class="strength-rating-bars">
+                        <div role="presentation" class="bar"></div>
+                        <div role="presentation" class="bar"></div>
+                        <div role="presentation" class="bar"></div>
+                        <div role="presentation" class="bar"></div>
+                    </div>
+                </div>
+            </section>
+            <!-- Botón para generar la contraseña -->
+            <button class="generate-btn" type="button" onclick="applyStyles()">
+                <span>Generate</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </form>
+        <br><br><br>
+        <footer>
+            <p>&copy; 2024 | PasswordGenerator | <a href="https://github.com/D1se0" target="_blank" class="link-profile">d1se0</a></p>
+        </footer>
+
+    </main>
+
+    <script src="js/scripts.js" defer></script>
+    <script src="js/view.js"></script>
+    <script src="js/info.js"></script>
+    <script src="js/tema_dinamico.js"></script>
+
+</body>
+</html>

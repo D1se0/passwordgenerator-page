@@ -1,0 +1,929 @@
+:root {
+    --main-bg: oklch(25.65% 0.015 291.04);
+    --main-title: oklch(59.74% 0.033 293.7);
+    --main-text-color: oklch(92.71% 0.007 295.44);
+    --contrast-color: oklch(92.22% 0.1407076288135227 147.19874413498218);
+    --secondary-dark-color: #23222a;
+    --third-dark-color: #191820;
+    --security-very-weak: #ec3e40;
+    --security-weak: #ff9b2b;
+    --security-medium: #f5d800;
+    --security-strong: #01a46d;
+    --gray-2: #151618;
+    --gray-3: #1c1c1c;
+    --gray-4: #333333;
+    --gray-5: #151618;
+    --gray-6: #121212;
+    --gray-7: #555555;
+    --gray-8: #25282c;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 62.5%;
+  }
+  
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "JetBrains Mono", monospace;
+    height: 100vh;
+    background-color: #14131b;
+    /*background: linear-gradient(180deg, #14131b 0%, #08070b 100%);*/
+  }
+  
+  /* MAIN */
+  main.container {
+    margin: 0 auto;
+    width: 54rem;
+  }
+  
+  /* MAIN'S HEADER */
+  h1 {
+    font-size: 2.4rem;
+    text-align: center;
+    color: var(--main-title);
+    margin-bottom: 3.2rem;
+  }
+  
+  section.password-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 8rem;
+    padding: 0 3.2rem;
+    margin-bottom: 2.4rem;
+    background-color: var(--main-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  p {
+    font-size: 1.8rem;
+    color: var(--main-text-color);
+  }
+  
+  p.password-placeholder {
+    font-size: 3.2rem;
+    opacity: 0.25;
+  }
+  
+  p.newPassword {
+    font-size: 3.2rem;
+    opacity: 1;
+    color: white;
+    font-weight: bold;
+  }
+  
+  div.copy-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+  }
+  
+  .copy-wrapper button::before {
+    content: "Copiado";
+    position: absolute;
+    top: 17rem;
+    transform: translateX(-2%);
+    background: var(--contrast-color);
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 1.3rem;
+    z-index: 2;
+    display: none;
+  }
+  
+  .copy-wrapper button::after {
+    content: "";
+    position: absolute;
+    top: 18.5rem;
+    transform: translateX(-50%) rotate(45deg);
+    width: 1rem;
+    height: 1rem;
+    background: var(--contrast-color);
+    transform: rotate(45deg);
+    z-index: 1;
+    display: none;
+  }
+  
+  .copy-wrapper.active button::before,
+  .copy-wrapper.active button::after {
+    display: block;
+  }
+  
+  button.copy-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  i.fa-copy {
+    font-size: 2.5rem;
+    color: var(--contrast-color);
+  }
+  
+  .copy-btn:hover i {
+    filter: contrast(3.5);
+  }
+  
+  /* MAIN'S FORM PASSWORD SETTINGS */
+  form.password-settings {
+    padding: 2.4rem 3.2rem 3.2rem;
+    background-color: var(--main-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Longitud de la contraseña */
+  header.char-length {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2.2rem;
+}
+
+span.char-count {
+    font-size: 3.2rem;
+    color: var(--contrast-color);
+}
+
+input.char-length-slider {
+    --seek-before-width: 50%;
+    margin-right: 15px;
+    width: 100%;
+    height: 7px;
+    margin-bottom: 3.6rem;
+    background: var(--third-dark-color); /* Fondo oscuro */
+    background-image: linear-gradient(to right, var(--contrast-color) var(--seek-before-width), var(--third-dark-color) var(--seek-before-width)); /* Barra de selección verde */
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border-radius: 5px; /* Borde redondeado */
+    -webkit-appearance: none; /* Elimina el estilo predeterminado en Webkit */
+    appearance: none; /* Elimina el estilo predeterminado */
+}
+
+input.char-length-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Elimina el estilo predeterminado en Webkit */
+    height: 20px;
+    width: 40px; /* Tamaño del rectángulo */
+    background-color: #fff; /* Fondo blanco */
+    border: 2px solid var(--main-text-color);
+    cursor: pointer;
+    position: relative;
+}
+
+input.char-length-slider::-webkit-slider-thumb::before {
+    content: '█'; /* Símbolo de cuadrado sólido */
+    font-size: 18px; /* Ajusta el tamaño según sea necesario */
+    color: var(--third-dark-color); /* Color de fondo del rectángulo */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+input.char-length-slider::-webkit-slider-thumb:hover {
+    border: 2px solid var(--contrast-color);
+    background-color: var(--third-dark-color);
+}
+
+input.char-length-slider::-webkit-slider-runnable-track {
+    -webkit-appearance: none; /* Elimina el estilo predeterminado en Webkit */
+    background: transparent; /* Fondo transparente para el track */
+}
+
+input.char-length-slider::-moz-range-thumb {
+    -moz-appearance: none; /* Elimina el estilo predeterminado en Firefox */
+    height: 20px;
+    width: 40px; /* Tamaño del rectángulo */
+    background-color: #fff; /* Fondo blanco */
+    border: 2px solid var(--main-text-color);
+    cursor: pointer;
+    position: relative;
+}
+
+input.char-length-slider::-moz-range-thumb::before {
+    content: '█'; /* Símbolo de cuadrado sólido */
+    font-size: 18px; /* Ajusta el tamaño según sea necesario */
+    color: var(--third-dark-color); /* Color de fondo del rectángulo */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+input.char-length-slider::-ms-thumb {
+    height: 20px;
+    width: 40px; /* Tamaño del rectángulo */
+    background-color: #fff; /* Fondo blanco */
+    border: 2px solid var(--main-text-color);
+    cursor: pointer;
+    position: relative;
+}
+
+input.char-length-slider::-ms-thumb::before {
+    content: '█'; /* Símbolo de cuadrado sólido */
+    font-size: 18px; /* Ajusta el tamaño según sea necesario */
+    color: var(--third-dark-color); /* Color de fondo del rectángulo */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+input.char-length-slider::-ms-track {
+    background: var(--third-dark-color); /* Fondo oscuro */
+    border-color: transparent;
+    color: transparent;
+}
+
+
+  
+  /* Checkboxs de diferentes parámetros que incluír en la contraseña */
+  div.char-include-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3.4rem;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer; /* Hace que todo el área de la etiqueta sea clicable */
+}
+
+input[type="checkbox"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    pointer-events: none; /* Asegura que el input no interfiera con el clic */
+}
+
+span.custom-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    width: 2rem;
+    /*border: 2px solid var(--main-text-color);*/
+    border-radius: 5px;
+    margin-right: 1rem;
+    background-color: var(--third-dark-color);
+    transition: background-color 0.3s, border-color 0.3s;
+    position: relative; /* Necesario para el pseudo-elemento */
+    box-sizing: border-box;
+}
+
+/* Muestra el tick cuando la casilla está marcada */
+input[type="checkbox"]:checked + .custom-checkbox {
+    border-color: var(--contrast-color);
+    background-color: var(--contrast-color);
+}
+
+/* Efecto de salto al marcar la casilla */
+input[type="checkbox"]:checked + .custom-checkbox {
+  animation: jump 0.3s ease-out; /* Duración y tipo de animación */
+}
+
+/* Definición de la animación de salto */
+@keyframes jump {
+  0% { transform: translateY(0); }
+  30% { transform: translateY(-5px); } /* Subir ligeramente */
+  60% { transform: translateY(3px); }  /* Bajar un poco */
+  100% { transform: translateY(0); }   /* Volver a la posición inicial */
+}
+
+/* Ajuste de la transición para suavizar */
+.custom-checkbox {
+  display: inline-block;
+  transition: transform 0.3s ease; /* Suaviza la animación */
+}
+
+/* CSS para el checkbox no seleccionado */
+/*input[type="checkbox"]:not(:checked) + .custom-checkbox::before {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: var(--security-very-weak);
+  border-radius: 2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}*/
+
+/* Estilo para los textos asociados con checkboxes no seleccionados */
+input[type="checkbox"]:not(:checked) + .custom-checkbox + p {
+  color: var(--security-very-weak);
+}
+
+/* Tick de la casilla */
+.custom-checkbox::after {
+    display: none; /* Inicialmente oculto */
+    content: '✔'; /* Prueba temporalmente con un símbolo para ver si aparece */
+    color: black; /* Color del tick */
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.4rem; /* Ajusta el tamaño del tick */
+}
+
+/* Muestra el tick cuando la casilla está marcada */
+input[type="checkbox"]:checked + .custom-checkbox::after {
+    display: block;
+}
+
+/* Estilo del texto al lado de la casilla */
+label p {
+    margin: 0;
+    font-size: 1.6rem;
+    color: var(--main-text-color);
+}
+
+  
+  /* Criterio de Seguridad de la contraseña */
+  section.strength-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    color: var(--main-text-color);
+    margin-bottom: 3.2rem;
+    padding: 0 3.2rem;
+    height: 7.2rem;
+    background-color: var(--third-dark-color);
+    border-radius: 8px;
+}
+
+div.strength-rating {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+}
+
+span.strength-rating-text {
+    font-size: 2.4rem;
+    color: var(--main-text-color);
+}
+
+div.strength-rating-bars {
+    display: flex;
+    gap: 0.8rem;
+}
+
+div.bar {
+    width: 1rem;
+    height: 2.8rem;
+    border: 2px solid var(--main-text-color); /* Borde blanco por defecto */
+    background: none; /* Sin fondo por defecto */
+    border-radius: 2px; /* Opcional: borde redondeado */
+}
+
+/* Aplicar color a las barras llenas y quitar borde blanco */
+div.bar.filled {
+    background-color: var(--contrast-color); /* Color de la parte llena */
+    border: none; /* Quitar borde blanco */
+}
+  
+  /* Botón para generar la contraseña */
+  button.generate-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.2rem;
+    font-family: inherit;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    color: var(--secondary-dark-color);
+    width: 100%;
+    padding: 1.9rem 0;
+    border: 2px solid var(--contrast-color);
+    background-color: var(--contrast-color);
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .fa-arrow-right {
+    color: var(--main-bg);
+    font-size: 1.5rem;
+  }
+  
+  .generate-btn:hover {
+    color: var(--contrast-color);
+    background-color: var(--secondary-dark-color);
+  }
+  
+  .generate-btn:hover path {
+    fill: var(--contrast-color);
+  }
+  
+  .generate-btn:hover .fa-arrow-right {
+    color: var(--contrast-color);
+  }
+  
+  /* FOOTER */
+  footer {
+    position: relative;
+    text-align: center;
+    bottom: 1.6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.4rem;
+    color: var(--main-text-color);
+  }
+  
+  footer a {
+    color: var(--contrast-color);
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  
+.link-profile {
+  text-decoration: none;
+}
+
+.link-profile:hover {
+  color: rgb(80, 151, 80);
+  text-decoration: none;
+}
+
+/* Estilos para el label del campo "Characters to Avoid" */
+
+.avoid-chars-label {
+  display: flex;
+  align-items: center; /* Alinea verticalmente los elementos en el centro */
+  margin-bottom: 1rem;
+  margin-bottom: -10px;
+}
+
+.avoid-chars-text {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--main-text-color);
+  margin-right: 1rem; /* Espacio entre el texto y el input */
+  flex-shrink: 0; /* Evita que el texto se reduzca si el input crece */
+}
+
+input#avoid-chars {
+  font-size: 1.6rem;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--secondary-dark-color);
+  border-radius: 4px;
+  background: var(--third-dark-color);
+  color: var(--main-text-color);
+  width: 100%;
+  max-width: 300px; /* Ajusta el tamaño máximo del input para evitar que se extienda demasiado */
+  transition: border-color 0.3s;
+}
+
+input#avoid-chars::placeholder {
+  color: var(--main-text-color);
+  opacity: 0.6;
+}
+
+input#avoid-chars:focus {
+  border-color: var(--contrast-color);
+  outline: none;
+}
+
+/* Estilos para el botón toggle-visibility */
+button.toggle-visibility {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2.5rem;
+  color: var(--contrast-color);
+  transition: color 0.3s;
+}
+
+button.toggle-visibility:hover {
+  color: var(--main-text-color);
+}
+
+button.toggle-visibility i {
+  pointer-events: none; /* Asegura que los clics se detecten en el botón, no en el ícono */
+}
+
+/* Contenedor de la contraseña */
+.password-display {
+  position: relative; /* Para posicionar los puntos en relación al contenedor */
+  display: inline-block; /* Ajusta el tamaño del contenedor al contenido */
+  font-size: 3.2rem; /* Tamaño del texto visible y de los puntos */
+}
+
+/* Estilo del texto de la contraseña */
+.password-placeholder {
+  font-family: 'monospace', sans-serif; /* Fuente monoespaciada para alineación */
+  font-size: 3.2rem; /* Tamaño del texto visible */
+  color: var(--main-text-color); /* Color del texto visible */
+  transition: opacity 0.3s;
+  white-space: nowrap; /* Evita el salto de línea */
+  position: relative; /* Para posicionar los puntos dentro del contenedor */
+}
+
+/* Estilo cuando la contraseña está oculta */
+.password-placeholder.hidden {
+  color: transparent; /* Oculta el texto real */
+}
+
+/* Puntos que se muestran cuando la contraseña está oculta */
+.password-placeholder.hidden::after {
+  content: ''; /* Se eliminará el contenido del pseudo-elemento */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Ajusta el ancho del contenedor de puntos */
+  height: 100%; /* Ajusta la altura del contenedor de puntos */
+  display: flex; /* Usar flexbox para alinear los puntos */
+  align-items: center; /* Centra verticalmente los puntos */
+  justify-content: space-between; /* Distribuye los puntos en el ancho del contenedor */
+  font-size: 3.2rem; /* Tamaño del punto */
+  color: var(--main-text-color); /* Color de los puntos */
+  white-space: nowrap; /* Evita el salto de línea */
+  overflow: hidden; /* Asegura que no haya desbordamiento */
+  text-align: center; /* Alinea los puntos al centro */
+}
+
+/* Crear puntos dinámicamente en función del ancho del contenedor */
+.password-placeholder.hidden::after {
+  content: attr(data-points); /* Generar puntos basado en el atributo de datos */
+}
+
+.password-placeholder.shown {
+  font-family: inherit; /* Vuelve a la fuente original */
+  font-size: 3.2rem;
+}
+
+/* Estilos generales para la barra de desplazamiento en navegadores basados en WebKit */
+::-webkit-scrollbar {
+  width: 10px; /* Ancho de la barra de desplazamiento */
+  height: 10px; /* Altura de la barra de desplazamiento para desplazamiento horizontal */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--gray-4); /* Color del "pulgar" de la barra de desplazamiento */
+  border-radius: 5px; /* Bordes redondeados del "pulgar" */
+  border: 2px solid var(--gray-3); /* Borde alrededor del "pulgar" para crear espacio */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--gray-7); /* Color del "pulgar" al pasar el ratón por encima */
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--gray-2); /* Color de fondo de la pista de la barra de desplazamiento */
+  border-radius: 5px; /* Bordes redondeados de la pista */
+}
+
+/* Soporte para la personalización de la barra de desplazamiento en Firefox */
+.scroll-container {
+  scrollbar-width: thin; /* Estilo de la barra de desplazamiento: thin, auto, none */
+  scrollbar-color: var(--gray-4) var(--gray-2); /* Color del pulgar y de la pista */
+}
+
+/* Contenedor principal para el toggle */
+div.theme {
+  display: inline-flex;
+  width:  auto; /* Ajusta el tamaño según tu diseño */
+  height: auto; /* Ajusta el tamaño según tu diseño */
+  margin-top: -25px;
+  transition: transform 0.3s, color 0.4s; /* Suaviza el cambio de color y rotación */
+  color: var(--main-text-color); /* Color inicial del ícono */
+  cursor: pointer; /* Cambia el cursor para indicar clickeabilidad */
+}
+
+/* Estilo del título */
+.title-page {
+margin-right: 0;
+}
+
+/* Efecto de rebote al hacer clic */
+div.theme:active {
+  animation: bounce 0.3s ease; /* Aplica la animación de rebote */
+}
+
+/* Modo oscuro activado */
+body.dark-mode #mode-toggle {
+  background-color: var(--main-dark-color); /* Fondo oscuro */
+}
+
+/* Transición del icono en modo oscuro */
+body.dark-mode #mode-toggle svg {
+  transform: rotate(180deg); /* Rotación del ícono para indicar cambio */
+  color: var(--contrast-light-color); /* Color del ícono en modo oscuro */
+}
+
+/* Animación de rebote */
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.85); /* Escala hacia adentro para el rebote */
+  }
+  70% {
+    transform: scale(1.05); /* Escala hacia afuera para el efecto de rebote */
+  }
+  100% {
+    transform: scale(1); /* Vuelve a su tamaño normal */
+  }
+}
+
+/* Estilos del contenedor del encabezado boton tema dinamico */
+.header-content {
+  display: flex;
+  align-items: center; /* Alinea verticalmente */
+  justify-content: space-between; /* Espacia el título y el ícono */
+  margin-bottom: auto; /* Ajusta el margen según tu diseño */
+}
+
+/* Estilos para el botón de información */
+.info-btn {
+  margin-top: -10px;
+  margin-bottom: 15px;
+  margin-left: 43%;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  color: var(--gray-7);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.info-btn:hover {
+  transform: scale(1.1); /* Aumenta el tamaño del botón al 110% */
+}
+
+.info-btn:active {
+  transform: scale(0.95);
+}
+
+/* Estilos para el popup */
+.popup {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro con mayor opacidad */
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease-out; /* Animación de entrada */
+}
+
+.popup-content {
+  background-color: #414141;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  animation: zoomIn 0.3s ease-out; /* Animación de entrada */
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-btn:hover {
+  color: #ff0000;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+      transform: scale(0.8);
+      opacity: 0;
+  }
+  to {
+      transform: scale(1);
+      opacity: 1;
+  }
+}
+
+/* Estilo para el contenido del popup */
+.popup-content h2 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: rgb(193, 193, 193);
+}
+
+.popup-content p {
+  font-size: 1em;
+  color: whitesmoke;
+  line-height: 1.5;
+}
+
+/* Estilos para el recuadro tipo terminal */
+.terminal-box {
+  display: inline-block; /* Hace que el recuadro se ajuste al tamaño del contenido */
+  padding: 2px; /* Espaciado interno del recuadro */
+  font-family: 'JetBrains Mono', monospace; /* Fuente tipo monospace para el estilo de terminal */
+  font-size: 1em; /* Tamaño de fuente */
+  background-color: #1e1e1e; /* Color de fondo estilo terminal oscuro */
+  color: #bb9900; /* Color del texto estilo terminal verde */
+  border-radius: 4px; /* Bordes redondeados */
+  white-space: nowrap; /* Mantiene el texto en una sola línea */
+  font-weight: bold; /* Opcional: texto en negrita para destacarse */
+}
+
+.password-display {
+  overflow-x: auto; /* Habilitar el desbordamiento horizontal */
+  white-space: nowrap; /* Evitar que el texto se ajuste en varias líneas */
+  -webkit-overflow-scrolling: touch; /* Mejora la experiencia de desplazamiento en iOS */
+  padding-right: 10px; /* Agregar un margen interno a la derecha */
+}
+
+.password-placeholder {
+  display: inline-block; /* Evitar que el texto se ajuste en varias líneas */
+  padding-right: 10px; /* Agregar un margen interno a la derecha */
+}
+
+/* Estilos generales para dispositivos móviles */
+@media (max-width: 767px) {
+  
+  /* Ajustes para el cuerpo y el contenedor principal */
+  body {
+    font-size: 50%; /* Reducir tamaño de fuente para dispositivos móviles */
+    padding: 0 1rem; /* Agregar un poco de padding para mejor legibilidad */
+  }
+  
+  main.container {
+    width: 100%; /* Hacer el contenedor principal ancho completo */
+    padding: 1rem; /* Agregar padding en el contenedor */
+  }
+  
+  .theme svg {
+    height: 4em; /* Tamaño aumentado en la versión móvil */
+    width: 4em;  /* Tamaño aumentado en la versión móvil */
+    margin-bottom: -10px;
+  }
+
+  /* Ajustes para el encabezado principal */
+  h1 {
+    font-size: 2rem; /* Reducir tamaño del texto del encabezado */
+    margin-bottom: 2rem; /* Reducir margen inferior */
+  }
+
+  .password-display {
+    overflow-x: auto; /* Habilitar el desbordamiento horizontal */
+    white-space: nowrap; /* Evitar que el texto se ajuste en varias líneas */
+    -webkit-overflow-scrolling: touch; /* Mejora la experiencia de desplazamiento en iOS */
+    padding-right: 10px; /* Agregar un margen interno a la derecha */
+  }
+
+  .password-placeholder {
+    display: inline-block; /* Evitar que el texto se ajuste en varias líneas */
+  }
+
+  /* Ajustes para el campo de contraseña */
+  section.password-field {
+    height: auto; /* Hacer que el campo de contraseña se ajuste automáticamente */
+    padding: 0 1rem; /* Reducir padding */
+    margin-bottom: 1.5rem; /* Reducir margen inferior */
+  }
+  
+  /* Ajustes para el texto de la contraseña */
+  p {
+    font-size: 1.6rem; /* Reducir tamaño de fuente para dispositivos móviles */
+  }
+  
+  p.password-placeholder {
+    font-size: 2.4rem; /* Reducir tamaño de fuente para el placeholder */
+  }
+  
+  p.newPassword {
+    font-size: 2.4rem; /* Reducir tamaño de fuente para la nueva contraseña */
+  }
+  
+  /* Ajustes para el slider de longitud de la contraseña */
+  input.char-length-slider {
+    height: 5px; /* Reducir altura del slider */
+    margin-bottom: 2rem; /* Reducir margen inferior */
+  }
+  
+  input.char-length-slider::-webkit-slider-thumb {
+    height: 16px; /* Reducir tamaño del thumb del slider */
+    width: 32px; /* Reducir tamaño del thumb del slider */
+  }
+  
+  /* Ajustes para checkboxes */
+  div.char-include-group {
+    gap: 1rem; /* Reducir espacio entre checkboxes */
+  }
+  
+  label p {
+    font-size: 1.4rem; /* Reducir tamaño de fuente para textos al lado de checkboxes */
+  }
+  
+  /* Ajustes para la caja de fortaleza de la contraseña */
+  section.strength-box {
+    font-size: 1.6rem; /* Reducir tamaño de fuente */
+    height: auto; /* Ajustar altura automáticamente */
+    padding: 1rem; /* Reducir padding */
+  }
+  
+  span.strength-rating-text {
+    font-size: 2rem; /* Reducir tamaño de fuente */
+  }
+  
+  /* Ajustes para el botón generar contraseña */
+  button.generate-btn {
+    font-size: 1.6rem; /* Reducir tamaño de fuente */
+    padding: 1rem 0; /* Reducir padding */
+  }
+  
+  .fa-arrow-right {
+    font-size: 1.2rem; /* Reducir tamaño del ícono */
+  }
+  
+  /* Ajustes para el footer */
+  footer {
+    font-size: 1.2rem; /* Reducir tamaño de fuente */
+    bottom: 1rem; /* Ajustar posición inferior */
+  }
+  
+  /* Ajustes para el campo "Characters to Avoid" */
+  .avoid-chars-label {
+    margin-top: 10px;
+    margin-bottom: -10px;
+  }
+  
+  input#avoid-chars {
+    font-size: 1.4rem; /* Reducir tamaño de fuente */
+    padding: 0.4rem 1rem; /* Reducir padding */
+  }
+  
+  /* Ajustes para el botón toggle-visibility */
+  button.toggle-visibility {
+    font-size: 2rem; /* Reducir tamaño de fuente */
+  }
+  
+  .info-btn {
+    margin-top: 5px;
+  }
+
+  /* Ajustes para el popup */
+  .popup-content {
+    width: 90%; /* Ajustar ancho para móviles */
+    padding: 20px; /* Reducir padding */
+  }
+  
+  .popup-content h2 {
+    font-size: 3em; /* Reducir tamaño de fuente */
+  }
+  
+  .popup-content p {
+    font-size: 2em; /* Reducir tamaño de fuente */
+  }
+  
+  /* Ajustes para el recuadro tipo terminal */
+  .terminal-box {
+    font-size: 0.9em; /* Reducir tamaño de fuente */
+    padding: 1px; /* Reducir padding */
+  }
+}
