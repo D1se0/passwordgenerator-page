@@ -1,77 +1,77 @@
 # PasswordGenerator
 
-PasswordGenerator es una herramienta web para generar contraseñas seguras y personalizadas. Esta aplicación permite a los usuarios crear contraseñas de alta calidad, evitando caracteres no deseados y proporcionando una experiencia de usuario intuitiva y personalizable.
+PasswordGenerator is a web tool for generating secure, custom passwords. This application allows users to create high-quality passwords, avoiding unwanted characters and providing an intuitive and customizable user experience.
 
-## Características
+## Characteristics
 
-- **Generación de Contraseñas Seguras**: Genera contraseñas aleatorias con configuraciones específicas para garantizar la seguridad.
-- **Personalización**: Los usuarios pueden especificar caracteres a evitar y ajustar la longitud de la contraseña.
-- **Cambio de Tema**: Ofrece una interfaz de usuario que permite cambiar entre temas claro y oscuro de manera dinámica.
-- **Visualización de Contraseñas**: Las contraseñas generadas se pueden ocultar o mostrar según la preferencia del usuario.
+- **Secure Password Generation**: Generate random passwords with specific settings to ensure security.
+- **Customization**: Users can specify characters to avoid and adjust the password length.
+- **Theme Switching**: Offers a user interface that allows you to switch between light and dark themes dynamically.
+- **Password Display**: The generated passwords can be hidden or shown according to the user's preference.
 
-## Instalación
+## Facility
 
-Para ejecutar PasswordGenerator localmente, sigue estos pasos:
+To run PasswordGenerator locally, follow these steps:
 
-1. **Clonar el Repositorio**:
+1. **Clone the Repository**:
 
     ```bash
     git clone https://github.com/D1se0/passwordgenerator-page.git
     cd passwordgenerator
     ```
 
-3. **Estructura del Proyecto**:
+3. **Project Structure**:
 
-    - `index.html`: Archivo principal HTML.
-    - `css/`: Carpeta con las hojas de estilo CSS para temas claros y oscuros.
-    - `js/`: Carpeta con los scripts JavaScript.
-    - `images/`: Carpeta para cualquier imagen utilizada en el proyecto.
+    - `index.html`: Main HTML file.
+    - `css/`: Folder with CSS style sheets for light and dark themes.
+    - `js/`: Folder with JavaScript scripts.
+    - `img/`: Folder for any images used in the project.
 
-5. **Abrir el Proyecto**:
+5. **Open the Project**:
 
-    Abre `index.html` en tu navegador para empezar a usar la aplicación.
+    Open `index.html` in your browser to start using the application.
 
-## Uso
+## Use
 
-1. **Generar Contraseñas**:
+1. **Generate Passwords**:
 
-   - Utiliza el botón de "Generar Contraseña" para crear una nueva contraseña.
-   - Puedes personalizar la contraseña configurando los caracteres a evitar y ajustando la longitud.
+   - Use the "Generate Password" button to create a new password.
+   - You can customize the password by setting the characters to avoid and adjusting the length.
 
-3. **Cambiar el Tema**:
+3. **Change Theme**:
 
-   - Usa el botón de cambio de tema para alternar entre modo claro y oscuro. La preferencia se guardará en el almacenamiento local del navegador.
+  - Use the theme switch button to switch between light and dark mode. The preference will be saved to the browser's local storage.
 
-5. **Visualizar Contraseñas**:
+5. **View Passwords**:
 
-   - Puedes optar por ocultar o mostrar la contraseña generada con el botón de visibilidad.
+   - You can choose to hide or show the generated password with the visibility button.
 
-## Tecnologías
+## Technologies
 
-- **HTML5**: Para la estructura de la página.
-- **CSS3**: Para el diseño y estilo de la página, incluyendo la funcionalidad de temas claros y oscuros.
-- **JavaScript**: Para la lógica de la aplicación, incluyendo la generación de contraseñas y el cambio de temas.
+- **HTML5**: For the structure of the page.
+- **CSS3**: For page design and styling, including light and dark theme functionality.
+- **JavaScript**: For application logic, including generating passwords and changing themes.
 
-## Contribuciones
+## Contributions
 
-Si deseas contribuir al proyecto, por favor sigue estos pasos:
+If you wish to contribute to the project, please follow these steps:
 
-1. **Fork** el repositorio.
-2. Crea una **rama** para tus cambios (`git checkout -b mi-cambio`).
-3. Realiza los cambios necesarios.
-4. **Commit** tus cambios (`git commit -am 'Añadí una nueva característica'`).
-5. **Push** a la rama (`git push origin mi-cambio`).
-6. Crea un **Pull Request** en GitHub.
+1. **Fork** the repository.
+2. Create a **branch** for your changes (`git checkout -b my-change`).
+3. Make the necessary changes.
+4. **Commit** your changes (`git commit -am 'I added a new feature'`).
+5. **Push** to the branch (`git push origin my-change`).
+6. Create a **Pull Request** on GitHub.
 
-## Licencia
+## License
 
-Este proyecto está licenciado bajo la `Licencia MIT`. Consulta el archivo `[LICENSE](#)` para obtener más detalles.
+This project is licensed under the `MIT License`. See the `[LICENSE](#)` file for more details.
 
-## Contacto
+## Contact
 
-Si tienes alguna pregunta o necesitas ayuda, no dudes en contactarme:
+If you have any questions or need help, don't hesitate to contact me:
 
-- **Nombre**: d1se0
-- **Correo electrónico**: ciberseguridad12345@gmail.com
+- **Name**: d1se0
+- **Email**: ciberseguridad12345@gmail.com
 
-Gracias por usar PasswordGenerator. ¡Espero que encuentres esta herramienta útil!
+Thank you for using PasswordGenerator. I hope you find this tool useful!
