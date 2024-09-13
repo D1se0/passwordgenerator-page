@@ -17,7 +17,7 @@ To run PasswordGenerator locally, follow these steps:
 
     ```bash
     git clone https://github.com/D1se0/passwordgenerator-page.git
-    cd passwordgenerator
+    cd passwordgenerator-page
     ```
 
 3. **Project Structure**:
